@@ -24,9 +24,9 @@ This will download the source files into the project folder `Mozilla_London_2014
 Install
 =======
 
-In order to rebuild the example, you will need to install the development dependencies of the project (including AwayJS). For this you will need [nodejs](http://nodejs.org/) installed on your local machine.
+In order to rebuild the example, you will need to install the development dependencies of the project (including AwayJS). For this you will need [Node.js](http://nodejs.org/) installed on your local machine.
 
-Goto [http://nodejs.org/](http://nodejs.org/) to grab the latest version of node and download, unpack & install the binary for your system (Installers exist for Mac, Linux and Windows).
+Goto [http://nodejs.org/](http://nodejs.org/) to grab the latest version of Node.js and download, unpack & install the binary for your system (Installers exist for Mac, Linux and Windows).
 
 Node installs with its own package manager called [npm](https://www.npmjs.org/). This is used for installing many different development utilities such as the Typescript compiler used in compiling. It is also the method used for downloading all AwayJS resources.
 
@@ -34,7 +34,7 @@ To install the npm modules required for this example, simply browse to your proj
 
     npm install
 
-If you're on a Mac, depending on your setup you may need administrator permissions. If you are prompted to retry the install with Adminstrator permissions set, try typing:
+If you're on a Mac, depending on your setup you may need Administrator privileges. If you are prompted to retry the install with Adminstrator privileges set, try typing:
 
     sudo npm install
 
@@ -45,7 +45,7 @@ Once installation is complete, you should see a new directory in your project fo
 Run
 ===
 
-In order to run the example in a browser, you'll need to setup a local server on the `bin` folder of your project. You can use any number of different server software for this, but one of the fastest and simplest is provided by node itself.
+In order to run the example in a browser, you'll need to setup a local server on the `bin` folder of your project. You can use any number of different server software for this, but one of the fastest and simplest is provided by Node itself.
 
 To create a straightforward http server, try installing the `http-server` module from npm:
 
@@ -53,7 +53,7 @@ To create a straightforward http server, try installing the `http-server` module
 
 The `-g` option installs the module globally, allowing it to be accessible from any directory on your machine. Once again, Administrator privileges may be necessary for Mac users.
 
-To run the http-server, create a separate terminal window, navigate to the project's `bin` folder and type:
+To run the server, create a separate terminal window, navigate to the project's `bin` folder and type:
 
      http-server
 
@@ -66,9 +66,9 @@ The demo loads a rigged character model that you can control. Use keys 1-5 for d
 Rebuild
 =======
 
-The example uses the popular task runner [Gulp](http://gulpjs.com/) to recompile sources. All development modules (including gulp) should have been installed by the `npm install` command detailed in the [Install](#Install) section.
+The example uses the popular task runner [Gulp](http://gulpjs.com/) to recompile sources. All development modules (including gulp) should have been installed by the `npm install` command detailed in the [Install](#install) section.
 
-Gulp also uses the command line to execute - simply navigate to the project root in the command line and choose from the following options to rebuild the code in the `bin` folder:
+Gulp also uses the command line to execute - simply navigate to the project root in the command line and choose from the following tasks to rebuild the code in the `bin` folder:
 
     gulp compile
 
@@ -76,13 +76,13 @@ Uses the Typescript compiler to compile the example `.ts` source into a `.js` fi
 
     gulp package
 
-Executes `compile`, then uses browserify to create a custom js file that embeds only the code required to run the example. The `http://localhost:8080/Intermediate_AWDViewer.html` url can be used to view any changes made to source files rebuilt in this way.
+Executes the `compile` task, then uses browserify to create a custom js file that embeds only the code required to run the example. The `http://localhost:8080/Intermediate_AWDViewer.html` url can be used to view any changes made to source files rebuilt in this way.
 
     gulp package-min
 
-Executes `package`, then uses an `uglifyjs` module to create a minified js file that embeds only the code required to run the example. The `http://localhost:8080/Intermediate_AWDViewer.html` url can be used to view any changes made to source files rebuilt in this way.
+Executes the `package` task, then uses an `uglifyjs` module to create a minified version of the example from the previous output. The `http://localhost:8080/Intermediate_AWDViewer.html` url can be used to view any changes made to source files rebuilt in this way.
 
-Trying out all of the different compile options, you'll notice that `package-min` produces the most compact option but is also the slowest to execute. This build method is generally best used when you are about to deploy a project, in order to get maximum compression for the final js source file. The `compile` option on the other hand is the fastest way to see what your example source is doing, and could be easily used with a simple watcher script and browser reloader to test code fast. It does however require an extra `<script>` tag to hold the precompiled AwayJS sources, hence the use of a different URL to see changes. This approach is not recommended for deploying final builds as it doesn't compress or obfuscate the final `.js` code in the same way that `package` or `package-min` does.
+Trying out all of the different compile options, you'll notice that `package-min` produces the most compact option but is also the slowest to execute. This build method is generally best used when you are about to deploy a project, in order to get maximum compression for the final `.js` file. The `compile` option on the other hand is the fastest way to run your example source in the browser, and could be easily used with a simple watcher script and browser reloader to test code fast. It does however require an extra `<script>` tag to hold the pre-compiled AwayJS sources, hence the use of a different URL to see changes. This approach is not recommended for deploying final builds as it doesn't prune or obfuscate the final `.js` code in the same way that `package` or `package-min` does.
 
 
 Sourcemaps
