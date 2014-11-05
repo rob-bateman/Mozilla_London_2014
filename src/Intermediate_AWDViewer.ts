@@ -47,12 +47,13 @@ import Loader						= require("awayjs-display/lib/containers/Loader");
 import View							= require("awayjs-display/lib/containers/View");
 import HoverController				= require("awayjs-display/lib/controllers/HoverController");
 
+import DefaultRenderer				= require("awayjs-renderergl/lib/DefaultRenderer");
 import SkeletonAnimator				= require("awayjs-renderergl/lib/animators/SkeletonAnimator");
 import SkeletonClipNode				= require("awayjs-renderergl/lib/animators/nodes/SkeletonClipNode");
 import CrossfadeTransition			= require("awayjs-renderergl/lib/animators/transitions/CrossfadeTransition");
 import AnimationStateEvent			= require("awayjs-renderergl/lib/events/AnimationStateEvent");
-import AWDParser					= require("awayjs-renderergl/lib/parsers/AWDParser");
-import DefaultRenderer				= require("awayjs-renderergl/lib/render/DefaultRenderer");
+
+import AWDParser					= require("awayjs-parsers/lib/AWDParser");
 
 class Intermediate_AWDViewer
 {
